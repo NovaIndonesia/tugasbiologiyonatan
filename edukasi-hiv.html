@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FFF0D6">
+<title>HIV: Karakter, Penularan, dan Pencegahan | Biologi SMA</title>
+<meta name="description" content="Website edukasi biologi tentang HIV: struktur virus, siklus hidup, penularan, pengobatan, dan pencegahan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FFF0D6;--paper:#FFF8EA;--ink:#1D1A33;--red:#D62839;--teal:#177E89;--sand:#F5DCAE;--mut:#5B566E}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font:400 17px/1.65 'Plus Jakarta Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(32px,4.6vw,56px);font-weight:800;max-width:18ch}
+h3{font-size:22px;font-weight:600}
+p{max-width:62ch}
+a,button{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.w{width:min(1120px,92%);margin:auto}
+section{padding:clamp(64px,10vw,116px) 0}
+.alt{background:var(--paper)}
+.dark{background:var(--ink);color:var(--cream)}
+.lead{color:var(--mut);margin:16px 0 40px;font-size:18px}
+.dark .lead{color:#d9cfb8}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--red);z-index:20}
+nav{position:fixed;inset:0 0 auto;z-index:10;background:#fff0d6d9;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #1d1a3320}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font:800 20px Fraunces,serif;text-decoration:none}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px #d6283933}
+.links{display:flex;gap:26px;font-size:15px;font-weight:500}
+.links a{text-decoration:none;opacity:.75;transition:opacity .2s}
+.links a:hover{opacity:1}
+.btn{display:inline-block;padding:13px 26px;border-radius:99px;border:2px solid var(--ink);background:none;font:700 16px 'Plus Jakarta Sans',sans-serif;text-decoration:none;cursor:pointer;transition:transform .25s,background .25s,color .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.p{background:var(--red);border-color:var(--red);color:#fff}
+.btn.s{padding:9px 20px;font-size:14px}
+.hero{min-height:100svh;display:grid;align-items:center;padding:110px 0 60px}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+h1{font-size:clamp(42px,6.6vw,88px);font-weight:800}
+.hero .lead{max-width:46ch;margin:24px 0 34px;font-size:clamp(17px,2vw,20px)}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.hero .w>div:first-child>*{animation:in .9s cubic-bezier(.2,.8,.2,1) both}
+.hero .w>div:first-child>:nth-child(2){animation-delay:.12s}
+.hero .w>div:first-child>:nth-child(3){animation-delay:.24s}
+.orb{aspect-ratio:1;border-radius:50%;background:var(--sand);display:grid;place-items:center;animation:pop 1.1s cubic-bezier(.2,.8,.2,1) both .1s}
+.orb .v{width:92%;animation:float 7s ease-in-out infinite}
+@keyframes in{from{opacity:0;transform:translateY(28px)}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.v .sp line{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.v .sp circle{fill:var(--teal);stroke:var(--ink);stroke-width:3}
+.v .env{fill:var(--red);stroke:var(--ink);stroke-width:3}
+.v .mat{fill:#ee6c78;stroke:var(--cream);stroke-width:2;stroke-dasharray:3 6}
+.v .cap{fill:var(--cream);stroke:var(--ink);stroke-width:3;stroke-linejoin:round}
+.v .rna path{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.v .enz circle{fill:var(--teal);stroke:var(--ink);stroke-width:2}
+.v.spin .sp{animation:spin 60s linear infinite;transform-origin:200px 200px}
+.v [data-p]{transition:opacity .45s}
+.v.sel [data-p]{opacity:.18}
+.v.sel .on{opacity:1}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{border:2px solid var(--ink);border-radius:22px;padding:28px;background:var(--cream)}
+.box.r{background:var(--red);color:#fff;border-color:var(--red)}
+.box h3{margin-bottom:8px}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.stage{border-top:3px solid var(--ink);padding-top:18px}
+.stage p{font-size:15px;color:var(--mut);margin-top:6px}
+.meter{height:10px;border-radius:9px;background:var(--sand);margin:14px 0 4px;overflow:hidden}
+.meter i{display:block;height:100%;width:var(--w);background:var(--teal);border-radius:9px;transform-origin:left;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both;animation-play-state:paused}
+.on-view .meter i{animation-play-state:running}
+@keyframes grow{from{transform:scaleX(0)}}
+small{font-size:13px;color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 18px}
+.chip{padding:9px 18px;border-radius:99px;border:1.5px solid var(--ink);background:none;font:500 15px 'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:background .25s,color .25s,transform .2s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--cream)}
+.info{background:var(--paper);border:2px solid var(--ink);border-radius:22px;padding:26px;min-height:150px;box-shadow:6px 6px 0 var(--ink)}
+.info>*{animation:fade .45s both}
+.info p{margin-top:8px;color:var(--mut)}
+.steps{display:flex;justify-content:space-between;margin:44px 0 14px}
+.step{width:48px;height:48px;border-radius:50%;border:2px solid #fff6;background:none;font:700 17px Fraunces,serif;color:var(--cream);cursor:pointer;transition:all .3s}
+.step:hover{border-color:var(--cream)}
+.step[aria-current=true]{background:var(--red);border-color:var(--red);transform:scale(1.14)}
+.step.d{background:#fff2;border-color:transparent}
+.track{height:4px;border-radius:4px;background:#fff3;overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--red);transition:width .6s cubic-bezier(.3,.8,.2,1)}
+.panel{margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;min-height:210px}
+.panel>div{animation:fade .5s both}
+.panel h3{font-size:clamp(26px,3.4vw,38px);margin-bottom:12px}
+.panel p{color:#e6dcc4}
+.drug{background:#fff1;border-radius:20px;padding:24px;align-self:start}
+.drug b{display:block;font:600 18px Fraunces,serif;margin:6px 0}
+.drug small{color:#d9cfb8}
+.nav2{display:flex;gap:12px;margin-top:28px}
+.dark .btn{border-color:var(--cream)}
+.tabs{display:inline-flex;border:2px solid var(--ink);border-radius:99px;padding:4px;margin-bottom:28px}
+.tabs button{border:0;background:none;padding:10px 24px;border-radius:99px;font:700 15px 'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:background .3s,color .3s}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--cream)}
+.tabs button.no[aria-selected=true]{background:var(--teal)}
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;animation:fade .5s both}
+.list div{border-left:6px solid var(--red);background:var(--cream);border-radius:6px 20px 20px 6px;padding:18px 20px}
+.list.no div{border-color:var(--teal)}
+.list b{display:block;font:600 18px Fraunces,serif}
+.list span{font-size:15px;color:var(--mut)}
+.note{margin-top:28px;padding:20px 24px;border-radius:20px;background:var(--sand);max-width:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pc{border:2px solid var(--ink);border-radius:24px;padding:28px;transition:transform .3s,box-shadow .3s;background:var(--cream)}
+.pc:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.pc p{margin-top:8px;font-size:15px;color:var(--mut)}
+.pc.big{grid-column:span 2;background:var(--red);color:#fff;border-color:var(--red)}
+.pc.big p{color:#ffe3e5;font-size:17px}
+.pc.big:hover{box-shadow:6px 6px 0 var(--ink)}
+details{border-bottom:2px solid var(--ink);padding:22px 0}
+summary{cursor:pointer;font:600 clamp(20px,2.6vw,28px) Fraunces,serif;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:32px;line-height:.9;transition:transform .35s;color:var(--red)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:14px;animation:fade .4s both}
+details b{color:var(--teal)}
+.quiz{max-width:760px;margin:auto}
+.qbox{background:var(--cream);color:var(--ink);border-radius:28px;padding:clamp(24px,4vw,44px)}
+.qbox>*{animation:fade .45s both}
+.qmeta{display:flex;justify-content:space-between;font-size:14px;color:var(--mut);margin-bottom:14px}
+.qbox h3{font-size:clamp(22px,3vw,30px);margin-bottom:22px}
+.opt{display:block;width:100%;text-align:left;padding:15px 20px;margin-bottom:10px;border-radius:16px;border:2px solid var(--ink);background:none;font:500 16px 'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:background .25s,transform .2s}
+.opt:hover:not(:disabled){background:var(--sand);transform:translateX(4px)}
+.opt:disabled{cursor:default}
+.opt.ok{background:var(--teal);border-color:var(--teal);color:#fff}
+.opt.bad{background:var(--red);border-color:var(--red);color:#fff}
+.fb{margin:14px 0 4px;padding:16px 20px;border-radius:16px;background:var(--sand);font-size:15px}
+.score{font:800 clamp(60px,12vw,110px) Fraunces,serif;color:var(--red);line-height:1}
+footer{padding:48px 0;font-size:14px;color:var(--mut)}
+footer .w{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer p{max-width:60ch}
+@media(max-width:820px){.hero .w,.split,.cmp,.panel{grid-template-columns:1fr}.links{display:none}.orb{max-width:380px;margin:auto}.stages,.grid{grid-template-columns:1fr}.pc.big{grid-column:auto}.hero{padding-top:96px}.step{width:40px;height:40px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><div class="w">
+<a class="logo" href="#top"><i></i>Mengenal HIV</a>
+<div class="links"><a href="#apa">Apa itu HIV</a><a href="#struktur">Struktur</a><a href="#siklus">Siklus hidup</a><a href="#menular">Penularan</a><a href="#cegah">Pencegahan</a></div>
+<a class="btn p s" href="#kuis">Coba kuis</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="w">
+<div>
+<h1>Kenali HIV dengan benar, lawan stigmanya dengan fakta.</h1>
+<p class="lead">Panduan visual Biologi SMA: dari struktur virus dan cara kerjanya di dalam tubuh, sampai langkah nyata untuk melindungi diri dan orang lain.</p>
+<div class="row"><a class="btn p" href="#apa">Mulai belajar</a><a class="btn" href="#struktur">Lihat struktur virus</a></div>
+</div>
+<div class="orb" id="hv"></div>
+</div></header>
+
+<section class="alt" id="apa"><div class="w">
+<h2>HIV dan AIDS itu tidak sama</h2>
+<p class="lead">HIV (Human Immunodeficiency Virus) adalah retrovirus dari genus Lentivirus yang menyerang sistem kekebalan tubuh, terutama sel T CD4+.</p>
+<div class="cmp">
+<div class="box"><h3>HIV</h3><p>Nama virusnya. Seseorang bisa hidup dengan HIV selama bertahun-tahun, tetap sehat, dan bekerja seperti biasa selama menjalani pengobatan teratur.</p></div>
+<div class="box r"><h3>AIDS</h3><p>Acquired Immunodeficiency Syndrome: kondisi tahap lanjut ketika kekebalan tubuh sangat rusak. Terjadi bila HIV tidak diobati, dan bisa dicegah dengan terapi.</p></div>
+</div>
+<div class="stages" id="stg">
+<div class="stage"><h3>Infeksi akut</h3><div class="meter"><i style="--w:55%"></i></div><small>Sel CD4 menurun sementara</small><p>Beberapa minggu setelah terpapar. Gejala mirip flu atau tanpa gejala. Jumlah virus sangat tinggi sehingga mudah menular.</p></div>
+<div class="stage"><h3>Fase kronis</h3><div class="meter"><i style="--w:80%"></i></div><small>Sel CD4 relatif stabil dengan terapi</small><p>Virus berkembang biak pelan. Tanpa terapi bisa berlangsung bertahun-tahun; dengan terapi, bisa berpuluh tahun.</p></div>
+<div class="stage"><h3>AIDS</h3><div class="meter"><i style="--w:15%"></i></div><small>Sel CD4 di bawah 200 sel/mm³</small><p>Tubuh mudah terserang infeksi oportunistik seperti TBC berat dan jamur. Terapi tetap bisa memulihkan kekebalan.</p></div>
+</div>
+</div></section>
+
+<section id="struktur"><div class="w split">
+<div>
+<h2>Anatomi sebuah virus kecil</h2>
+<p class="lead">Diameternya sekitar 100–120 nanometer. Pilih bagian di bawah untuk melihat fungsinya pada ilustrasi.</p>
+<div class="chips" id="chips" role="group" aria-label="Bagian virus"></div>
+<div class="info" id="pinfo" aria-live="polite"></div>
+</div>
+<div id="sv"></div>
+</div></section>
+
+<section class="dark" id="siklus"><div class="w">
+<h2>Tujuh langkah membajak sebuah sel</h2>
+<p class="lead">Virus tidak bisa berkembang biak sendiri. Ia harus memakai mesin sel inang. Setiap langkah ini menjadi target obat antiretroviral (ARV).</p>
+<div class="steps" id="steps"></div>
+<div class="track"><i id="tr"></i></div>
+<div class="panel" id="pn"></div>
+<div class="nav2"><button class="btn" id="pv">Sebelumnya</button><button class="btn p" id="nx">Berikutnya</button></div>
+</div></section>
+
+<section class="alt" id="menular"><div class="w">
+<h2>Menular lewat apa, dan tidak lewat apa</h2>
+<p class="lead">HIV hanya menular lewat cairan tertentu yang masuk ke aliran darah atau selaput lendir. Pergaulan sehari-hari aman.</p>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" id="t1">Dapat menularkan</button><button role="tab" class="no" aria-selected="false" id="t2">Tidak menularkan</button></div>
+<div id="tl"></div>
+<p class="note"><b>Cairan yang dapat membawa HIV:</b> darah, air mani, cairan pra-ejakulasi, cairan vagina, cairan dubur, dan ASI. Air liur, keringat, dan air mata tidak menularkan HIV.</p>
+</div></section>
+
+<section id="cegah"><div class="w">
+<h2>Perlindungan yang tersedia hari ini</h2>
+<p class="lead">Ilmu kedokteran sudah memberi banyak alat. Kombinasinya membuat penularan baru bisa ditekan sangat jauh.</p>
+<div class="grid">
+<div class="pc big"><h3>Tes HIV adalah langkah pertama</h3><p>Satu-satunya cara memastikan status HIV adalah tes. Tes dapat dilakukan di puskesmas, klinik, dan rumah sakit, dengan konseling dan kerahasiaan terjaga. Semakin cepat diketahui, semakin baik hasil pengobatannya.</p></div>
+<div class="pc"><h3>Kondom</h3><p>Dipakai benar dan konsisten, kondom menurunkan risiko penularan lewat hubungan seksual dan sekaligus melindungi dari infeksi menular seksual lain.</p></div>
+<div class="pc"><h3>PrEP</h3><p>Obat harian atau suntik untuk orang HIV-negatif yang berisiko tinggi, diberikan dan dipantau oleh tenaga kesehatan.</p></div>
+<div class="pc"><h3>PEP</h3><p>Obat darurat setelah paparan berisiko. Harus dimulai secepatnya, paling lambat 72 jam, lalu diminum selama 28 hari.</p></div>
+<div class="pc"><h3>U=U</h3><p>Undetectable = Untransmittable. Orang dengan HIV yang minum ARV teratur hingga virus tak terdeteksi tidak menularkan HIV lewat hubungan seksual.</p></div>
+<div class="pc"><h3>Jarum steril</h3><p>Jangan berbagi jarum suntik, tato, atau alat tajam. Gunakan alat sekali pakai atau yang disterilkan.</p></div>
+<div class="pc"><h3>Ibu hamil</h3><p>Dengan tes sejak awal kehamilan dan ARV, risiko penularan dari ibu ke bayi bisa ditekan hingga sangat kecil.</p></div>
+</div>
+</div></section>
+
+<section class="alt" id="mitos"><div class="w">
+<h2>Mitos yang sering kita dengar</h2>
+<p class="lead">Klik setiap mitos untuk melihat faktanya.</p>
+<div id="myth"></div>
+</div></section>
+
+<section class="dark" id="kuis"><div class="w quiz">
+<h2>Uji pemahamanmu</h2>
+<p class="lead">Lima pertanyaan singkat. Penjelasan muncul setelah setiap jawaban.</p>
+<div class="qbox" id="qb"></div>
+</div></section>
+
+<footer><div class="w">
+<p>Konten ini bersifat edukasi dan bukan pengganti saran medis. Untuk tes, konsultasi, atau pengobatan, kunjungi puskesmas atau fasilitas kesehatan terdekat. Menghargai orang dengan HIV adalah bagian dari pencegahan.</p>
+<p>Rujukan: <a href="https://www.who.int" target="_blank" rel="noopener">WHO</a> · <a href="https://www.kemkes.go.id" target="_blank" rel="noopener">Kementerian Kesehatan RI</a> · <a href="https://www.cdc.gov/hiv" target="_blank" rel="noopener">CDC</a></p>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function virus(c){let s='';for(let i=0;i<14;i++)s+=`<g transform="rotate(${i*360/14} 200 200)"><line x1="200" y1="80" x2="200" y2="50"/><circle cx="200" cy="44" r="9"/></g>`;
+return `<svg class="v ${c}" viewBox="0 0 400 400" role="img" aria-label="Ilustrasi struktur virus HIV"><g class="sp" data-p="spike">${s}</g><circle class="env" data-p="env" cx="200" cy="200" r="122"/><circle class="mat" data-p="mat" cx="200" cy="200" r="104"/><path class="cap" data-p="cap" d="M146 150Q200 128 254 150L218 270Q200 280 182 270Z"/><g class="rna" data-p="rna"><path d="M180 172q10-10 20 0t-20 16 20 16-20 16"/><path d="M196 170q12-10 24 0t-24 16 24 16-24 16"/></g><g class="enz" data-p="enz"><circle cx="190" cy="252" r="6"/><circle cx="208" cy="250" r="6"/><circle cx="199" cy="238" r="5"/></g></svg>`}
+$('#hv').innerHTML=virus('spin');
+$('#sv').innerHTML=virus('sel');
+
+/* Struktur */
+const P=[["spike","Tonjolan gp120 dan gp41","gp120 mengenali reseptor CD4 pada sel inang, sedangkan gp41 membantu virus menyatu dengan membran sel. Keduanya adalah kunci masuk virus."],
+["env","Selubung lipid","Lapisan lemak yang dibawa dari membran sel inang saat virus keluar. Karena itu virus mudah rusak oleh sabun dan panas di luar tubuh."],
+["mat","Matriks (p17)","Lapisan protein di bawah selubung yang menopang bentuk partikel virus."],
+["cap","Kapsid (p24)","Kerucut protein yang melindungi materi genetik. Protein p24 dipakai sebagai penanda pada beberapa jenis tes HIV."],
+["rna","Dua untai RNA","Materi genetik HIV berupa dua salinan RNA untai tunggal. Inilah ciri retrovirus: RNA diubah menjadi DNA di dalam sel inang."],
+["enz","Enzim virus","Reverse transcriptase, integrase, dan protease dibawa di dalam kapsid. Ketiganya menjadi target utama obat ARV."]];
+function pick(k){const p=P.find(x=>x[0]==k);$$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==k));$$('#sv [data-p]').forEach(e=>e.classList.toggle('on',e.dataset.p==k));$('#pinfo').innerHTML=`<h3>${p[1]}</h3><p>${p[2]}</p>`}
+$('#chips').innerHTML=P.map(p=>`<button class="chip" data-k="${p[0]}" aria-pressed="false">${p[1].split(' (')[0]}</button>`).join('');
+$('#chips').onclick=e=>e.target.dataset.k&&pick(e.target.dataset.k);
+pick('spike');
+
+/* Siklus hidup */
+const S=[["Pengikatan","Protein gp120 menempel pada reseptor CD4 dan koreseptor (CCR5 atau CXCR4) di permukaan sel T CD4+.","Penghambat pengikatan dan koreseptor"],
+["Fusi","gp41 menarik selubung virus hingga menyatu dengan membran sel. Isi virus masuk ke sitoplasma.","Penghambat fusi"],
+["Transkripsi balik","Enzim reverse transcriptase menyalin RNA virus menjadi DNA.","NRTI dan NNRTI"],
+["Integrasi","DNA virus masuk ke inti sel dan disisipkan ke DNA inang oleh enzim integrase. Kini disebut provirus.","Penghambat integrase (INSTI)"],
+["Replikasi","Sel inang membaca provirus dan menghasilkan RNA serta protein virus dalam jumlah besar.","Obat ARV belum bekerja langsung di tahap ini"],
+["Perakitan","RNA dan protein virus berkumpul di dekat membran sel membentuk partikel virus baru yang belum matang.","Obat ARV belum bekerja langsung di tahap ini"],
+["Pelepasan dan pematangan","Virus bertunas keluar sel. Enzim protease memotong protein panjang menjadi bagian fungsional sehingga virus menjadi matang dan menular.","Penghambat protease"]];
+let si=0;
+$('#steps').innerHTML=S.map((s,i)=>`<button class="step" data-i="${i}" aria-label="Langkah ${i+1}: ${s[0]}">${i+1}</button>`).join('');
+function go(i){si=Math.max(0,Math.min(6,i));const s=S[si];
+$$('.step').forEach((b,j)=>{b.toggleAttribute('aria-current',j==si);b.setAttribute('aria-current',j==si);b.classList.toggle('d',j<si)});
+$('#tr').style.width=si/6*100+'%';
+$('#pn').innerHTML=`<div><h3>${s[0]}</h3><p>${s[1]}</p></div><div class="drug"><small>Target obat</small><b>${s[2]}</b></div>`;
+$('#pv').disabled=si==0;$('#nx').disabled=si==6;$('#pv').style.opacity=si==0?.4:1;$('#nx').style.opacity=si==6?.4:1}
+$('#steps').onclick=e=>e.target.dataset.i&&go(+e.target.dataset.i);
+$('#pv').onclick=()=>go(si-1);$('#nx').onclick=()=>go(si+1);go(0);
+
+/* Penularan */
+const T=[[["Hubungan seksual tanpa kondom","Vaginal, anal, atau oral (risiko oral lebih rendah) dengan orang yang viral load-nya belum tertekan."],["Jarum atau alat tajam bergantian","Jarum suntik, tato, atau tindik yang tidak steril."],["Dari ibu ke anak","Saat hamil, melahirkan, atau menyusui bila ibu tidak mendapat ARV."],["Transfusi atau organ tidak terskrining","Sangat jarang di fasilitas resmi karena darah selalu diperiksa."]],
+[["Berjabat tangan, berpelukan, bersalaman","Kulit yang utuh bukan jalur penularan."],["Berbagi makan, minum, dan alat makan","Air liur tidak menularkan HIV."],["Batuk, bersin, berbagi ruangan","HIV bukan penyakit yang menular lewat udara."],["Toilet, kolam renang, gigitan nyamuk","Virus tidak bertahan lama di luar tubuh dan tidak berkembang di serangga."]]];
+function tab(n){$('#t1').setAttribute('aria-selected',n==0);$('#t2').setAttribute('aria-selected',n==1);$('#tl').innerHTML=`<div class="list ${n?'no':''}">${T[n].map(t=>`<div><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div>`}
+$('#t1').onclick=()=>tab(0);$('#t2').onclick=()=>tab(1);tab(0);
+
+/* Mitos */
+const M=[["“HIV sama dengan AIDS.”","HIV adalah virus penyebabnya. AIDS adalah tahap lanjut yang hanya terjadi bila HIV tidak diobati."],
+["“Orang dengan HIV pasti terlihat sakit.”","Banyak orang dengan HIV tampak sehat selama bertahun-tahun. Satu-satunya cara memastikan adalah tes."],
+["“HIV adalah vonis mati.”","Belum ada obat yang menghilangkan virus sepenuhnya, tetapi ARV menekan virus sehingga harapan hidup mendekati orang tanpa HIV bila diminum dini dan teratur."],
+["“Orang dengan HIV tidak boleh punya anak sehat.”","Dengan ARV dan pendampingan tenaga kesehatan, bayi yang lahir dari ibu dengan HIV dapat terlahir tanpa HIV."],
+["“Aman bergaul, makan bersama, atau berenang bersama?”","Sangat aman. Stigma dan pengucilan tidak melindungi siapa pun, justru membuat orang takut memeriksakan diri."]];
+$('#myth').innerHTML=M.map(m=>`<details><summary>${m[0]}</summary><p><b>Fakta:</b> ${m[1]}</p></details>`).join('');
+
+/* Kuis */
+const Q=[["HIV terutama menyerang sel apa?",["Sel darah merah","Sel T CD4+ (limfosit T helper)","Sel saraf","Sel otot"],1,"Sel T CD4+ mengoordinasi respons kekebalan. Saat jumlahnya turun, tubuh melemah melawan infeksi."],
+["Enzim apa yang mengubah RNA HIV menjadi DNA?",["Protease","Integrase","Reverse transcriptase","Amilase"],2,"Reverse transcriptase membuat DNA dari cetakan RNA. Itulah asal sebutan retrovirus."],
+["Mana yang TIDAK menularkan HIV?",["Berbagi jarum suntik","Berbagi gelas minum","Hubungan seksual tanpa kondom","Ibu hamil tanpa terapi ke bayinya"],1,"Air liur tidak menularkan HIV, jadi berbagi gelas minum aman."],
+["Apa arti U=U?",["Undetectable = Untransmittable","Universal = Unlimited","Under care = Under control","Unknown = Unsafe"],0,"Bila virus tidak terdeteksi berkat ARV teratur, HIV tidak menular lewat hubungan seksual."],
+["Apa materi genetik HIV?",["DNA untai ganda","RNA untai tunggal (dua salinan)","Protein saja","Plasmid"],1,"HIV membawa dua salinan RNA untai tunggal di dalam kapsid."]];
+let qi=0,sc=0;
+function quiz(){const b=$('#qb');
+if(qi>=Q.length){b.innerHTML=`<div class="qmeta"><span>Selesai</span></div><div class="score">${sc}/${Q.length}</div><h3 style="margin:14px 0 22px">${sc>=4?'Luar biasa. Kamu paham HIV dengan baik.':sc>=2?'Bagus. Ulangi bagian yang masih ragu.':'Tidak apa-apa. Baca lagi materinya, lalu coba lagi.'}</h3><button class="btn p" id="rs">Ulangi kuis</button>`;$('#rs').onclick=()=>{qi=0;sc=0;quiz()};return}
+const q=Q[qi];
+b.innerHTML=`<div class="qmeta"><span>Pertanyaan ${qi+1} dari ${Q.length}</span><span>Skor ${sc}</span></div><h3>${q[0]}</h3>${q[1].map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}<div id="fx"></div>`;
+$$('.opt').forEach(o=>o.onclick=()=>{const i=+o.dataset.i;if(i==q[2])sc++;
+$$('.opt').forEach((x,j)=>{x.disabled=true;if(j==q[2])x.classList.add('ok');else if(j==i)x.classList.add('bad')});
+$('#fx').innerHTML=`<div class="fb"><b>${i==q[2]?'Benar.':'Belum tepat.'}</b> ${q[3]}</div><button class="btn p s" id="nq" style="margin-top:12px">${qi==Q.length-1?'Lihat skor':'Pertanyaan berikutnya'}</button>`;
+$('#nq').onclick=()=>{qi++;quiz()};$('#nq').focus()})}
+quiz();
+
+/* Scroll */
+const bar=$('#bar');addEventListener('scroll',()=>{bar.style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%'},{passive:true});
+new IntersectionObserver((e,o)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on-view');o.unobserve(x.target)}}),{threshold:.4}).observe($('#stg'));
+</script>
+</body>
+</html>
